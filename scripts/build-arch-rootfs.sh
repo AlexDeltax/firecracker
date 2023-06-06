@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-DISK_SIZE=10G
+DISK_SIZE=64G
 DISK_FILE=../output/arch-rootfs.ext4
 DISK_ROOT=../output/mount
 
 cd $(dirname "${BASH_SOURCE[0]}")
 
 # Allocate rootfs disk
-fallocate -l 10G $DISK_FILE
+fallocate -l 64G $DISK_FILE
 mkfs.ext4 $DISK_FILE
 
 # Mount rootfs to mount
@@ -26,8 +26,8 @@ Description=Firecracker Network
 [Service]
 Type=oneshot
 ExecStart=ip link set eth0 up
-ExecStart=ip addr add 10.0.1.2/24 dev eth0
-ExecStart=ip route add default via 10.0.1.1 dev eth0
+ExecStart=ip addr add 172.0.2.2/24 dev eth0
+ExecStart=ip route add default via 172.0.2.1 dev eth0
 RemainAfterExit=yes
 
 [Install]

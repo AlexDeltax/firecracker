@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-KERNEL_VERSION=6.3.3
+KERNEL_VERSION=6.3.5
 
 mkdir -p build
 
